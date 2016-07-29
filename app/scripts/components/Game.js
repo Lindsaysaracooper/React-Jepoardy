@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 import EachPointBox from './EachPointBox';
 import QuestionColumn from './QuestionColumn';
 import store from '../store';
+import Score from './score';
+
 
 const GamePage = React.createClass({
   getInitialState: function(){
@@ -36,6 +38,7 @@ const GamePage = React.createClass({
       <div className = "gameBoard">
         {categoryItems}
         {this.props.children}
+      <Score/>
       </div>
 
     )

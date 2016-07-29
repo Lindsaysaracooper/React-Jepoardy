@@ -4,21 +4,30 @@ import { Link } from 'react-router';
 import store from '../store';
 
 
+
 const Score = React.createClass({
   getInitialState: function(){
-    return{
-      score: []
-    },
-      console.log(store.categories);
-    componentDidMount: function(){
-
-      // store.categories.getCategories();
-      // store.categories.on('add', () => {
-      //   this.setState({categories: store.categories.toJSON()});
+    return {
+      session: store.session.toJSON()
+    };
+  },
+  componentDidMount: function(){
+    store.session.get();
+    store.session.on('change', () => {
+      this.setState({
+        session: store.session.toJSON()
       });
-    },
-
+    });
+  },
+  render: function(){
+    return(
+      <div>
+        {this.state.session.score}
+      </div>
+    )
+  }
 });
+
 
 
 export default Score;
