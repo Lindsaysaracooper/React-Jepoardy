@@ -1,0 +1,1 @@
+console.error("SyntaxError: /Users/LindsaySaraCooper/tiy/day-33/projects/app/scripts/components/Modal.js: Unexpected token (6:16) while parsing file: /Users/LindsaySaraCooper/tiy/day-33/projects/app/scripts/components/Modal.js");

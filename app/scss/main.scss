@@ -1,0 +1,48 @@
+header{
+  background-image: url("http://trackmy.tv/uploads/images/1397362801/1148/banner.jpg");
+    height: 31vh;
+    background-size: cover;
+}
+
+.questionButton {
+  background-color: #0005A6;
+  color: #C5915F;
+  font-size: 2rem;
+  width: 100%;
+  height: 11vh;
+
+}
+
+.column{
+  display: inline-block;
+  width: 20%;
+  margin-top: -23px;
+}
+.QuestionColumn {
+  list-style: none;
+  padding-left: 0px;
+
+}
+
+.columnTitle{
+  background-color: #0005A6;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  height: 10vh;
+  margin-bottom: -17px;
+  text-align: center;
+  padding-top: 2vh;
+  padding-right: 3%;
+  border: white 2px solid;
+
+}
+
+.modal-container{
+  position: absolute;
+  bottom: 8vh;
+  left: 32%;
+  opacity: 0.9;
+  background: white;
+  padding: 8%;
+}
