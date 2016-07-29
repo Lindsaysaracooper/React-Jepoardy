@@ -16,21 +16,21 @@ const GamePage = React.createClass({
     store.categories.getCategories();
     store.categories.on('add', () => {
       this.setState({categories: store.categories.toJSON()});
-
     });
   },
   // the below might be a new category component that will pull 5 questions
   render: function(){
-
     let categoryItems = this.state.categories.map(function(category, i, arr){
       return (
         <div className="column" key={i}>
           <p className="columnTitle">{category.title}</p>
-          <QuestionColumn />
+          <QuestionColumn
+          category= {category.id}
+          questions= {category.clues} />
         </div>
       )
     });
-    console.log(categoryItems);
+
     return (
       // I want to return 6 columns with categories titles and 5 boxes with values
       <div className = "gameBoard">

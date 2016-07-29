@@ -1,81 +1,48 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router'
+import { Link, hashHistory } from 'react-router';
+import store from "../store";
+
+const Modal = React.createClass({
+
+  modalClickHandler:function(e){
+    hashHistory.push('/');
+},
+
+   openModal () { this.setState({open: true}); },
+   closeModal () { this.setState({open: false}); },
+
+getInitialState: function(){
+    return {category: {}};
+
+},
 
 
-class Modal extends React.Component {
-  clickHandler: function(e){
-    console.log("you did it biatch")
-  },
-   constructor () {
-     super();
-     this.openModal = this.openModal.bind(this);
-     this.closeModal = this.closeModal.bind(this);
-   }
-   openModal () { this.setState({open: true}); }
-   closeModal () { this.setState({open: false}); }
-
-   render () {
+   render: function () {
+     let category=store.categories.get(this.props.params.categoryID);
+     let question = category.get('clues').filter((question, i, arr) => {
+     if (String(question.id) === this.props.params.questionID){
+       return question
+     }
+   });
      return (
        <div className="modal-container">
-            <h1 className = "categoryTitle"> The Category Name </h1>
-              <p className = "questionCopy"> This is the question </p>
-              <input type="button" name="Answer" value="Speak Answer"></input>
-              <input type="button" name="Pass" value="Pass"></input>
-              <input type="text" name="Answer" placeholder="Answer"></input>
-             <button onClick={this.clickHandler}>Close</button>
+            <h1 className = "categoryTitle"> {category.get('title')} </h1>
+              <p className = "questionCopy"> {question[0].question}</p>
+              <input className ="answerBox" type="text" name="Answer" placeholder="Answer"></input>
+              <button className = "button" onClick={this.modalClickHandler}>Submit</button>
+              <button className = "button" onClick={this.modalClickHandler}>Pass</button>
+             <button className = "button" onClick={this.modalClickHandler}>Close</button>
            </div>
 
      );
    }
- }
+ });
 
-// const Modal = React.createClass({
-//     render: function() {
-//         return
-//         <div className="modal-container">
-//           <div className = "modal">
-//             <h1 className = "categoryTitle">
-//               <p className = "questionCopy">
-//               <input type="button" name="Answer" value="Speak Answer"></input>
-//               <input type="button" name="Pass" value="Pass"></input>
-//                 <input type="text" name="Answer" placeholder="Answer"></input>
-//               </p>
-//             </h1>
-//           </div>
-//         </div>
-//     }
 //
-// });
-//
-// export default Modal;
-//
-//
-// const Modal = React.createClass({
-//      super();
-//      this.openModal = this.openModal.bind(this);
-//      this.closeModal = this.closeModal.bind(this);
-//    }
-//
-//    openModal () { this.setState({open: true}); }
-//
-//    closeModal () { this.setState({open: false}); }
-//
-//    render () {
-//      return (
-//        return
-//        <div className="modal-container">
-//          <div className = "modal">
-//            <h1 className = "categoryTitle">
-//              <p className = "questionCopy">
-//              <input type="button" name="Answer" value="Speak Answer"></input>
-//              <input type="button" name="Pass" value="Pass"></input>
-//                <input type="text" name="Answer" placeholder="Answer"></input>
-//              </p>
-//            </h1>
-//          </div>
-//        </div>
-//      );
-//    }
-//  }
+
+
+
+
+
 
 export default Modal;

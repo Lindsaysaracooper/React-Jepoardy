@@ -1,14 +1,15 @@
 import Backbone from 'backbone';
+import store from '../store';
+import React from 'react';
 
 
 export default Backbone.Model.extend({
-  id:'id',
   urlRoot:`http://jservice.io/api/clues?`,
   defaults: {
-    question: '',
-    value: '',
-    answer:''
+    clues: []
   },
 
 
+// filter to get just the question and answer from the above
 });
+// console.log(category);

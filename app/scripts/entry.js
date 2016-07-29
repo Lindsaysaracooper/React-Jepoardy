@@ -7,10 +7,11 @@ import Modal from "./components/Modal";
 
 
 
+
 const GameRouter =(
   <Router history = {hashHistory}>
     <Route path ="/" component = {GamePage}>
-        <Route path ="/components/modal" component = {Modal}/>
+        <Route path ="/category:categoryID/question:questionID" component = {Modal}/>
     </Route>
   </Router>
 )

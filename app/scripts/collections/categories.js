@@ -14,6 +14,7 @@ export default Backbone.Collection.extend({
         url:`http://jservice.io/api/category?id=${id}?`,
         success: (data) => {
           this.add(data)
+          this.trigger('update');
           // console.log(this.state);
         }
       })

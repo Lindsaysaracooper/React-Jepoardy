@@ -7,7 +7,7 @@ import modal from './Modal';
 
 const EachPointBox = React.createClass({
   pointClickHandler:function(e){
-    hashHistory.push('/components/modal');
+    hashHistory.push(`/category${this.props.id}/question${this.props.question.id}`);
 
   },
 render: function(){
