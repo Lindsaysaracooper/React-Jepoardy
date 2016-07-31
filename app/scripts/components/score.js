@@ -21,7 +21,7 @@ const Score = React.createClass({
   },
   render: function(){
     return(
-      <div>
+      <div className="scoreboard">
         {this.state.session.score}
       </div>
     )
